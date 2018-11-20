@@ -1,24 +1,24 @@
-#ifndef scannerCSVsorter_h
-#define scannerCSVsorter_h
+#ifndef driver_h
+#define driver_h
+
+
+typedef struct Collection
+{
+    Row *group;
+    char *header;
+}Collection;
 
 typedef struct Row
 {
-    char *row;
-    char *OGrow;
+    char *modRow;
     char *value;
-    int inum;
-    float fnum;
-    int isEmpty;
+    char *ogRow;
 }Row;
 
 char *delWhiteSpace(char* input);
 int sortFile(char* inFile, char* inFileName, char *name, char *endDir, int hasEnd);
 int isColValid(char* inCol);
 int isValidCSV(char* headerRow);
-int checkifDirorFile(char* dir);
-int checkDir(char* dir);
-char* checkPath(char* destination, char* workFile);
-char* changeOutFileName(char* workFile, char* colName);
-int ScannerDriver(char* path, char* name, char* endDir, int hasEnd, char* input);
-char* getparentPath(char* inFile, char* inFileName);
+int findNum(char* inCol);
+int getRows(char* inFile);
 #endif
